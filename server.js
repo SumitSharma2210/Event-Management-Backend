@@ -8,7 +8,10 @@ const app = express();
 const server = http.createServer(app);
 const cors = require("cors");
 
-const allowedOrigins = ["http://localhost:3000", process.env.FRONTEND_URL];
+const allowedOrigins = [
+  "https://event-management-frontend-delta.vercel.app/login",
+  process.env.FRONTEND_URL,
+];
 
 app.use(
   cors({
