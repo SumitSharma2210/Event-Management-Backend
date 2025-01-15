@@ -8,24 +8,9 @@ const app = express();
 const server = http.createServer(app);
 const cors = require("cors");
 
-// Updated allowedOrigins to support multiple Vercel deployments
-const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  "http://localhost:3000",
-  "https://event-management-frontend-delta.vercel.app",
-  "https://event-management-fro-git-37c370-sumit-sharmas-projects-a83a6a98.vercel.app",
-  "https://event-management-frontend-7xel5q27o.vercel.app",
-];
-
 app.use(
   cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "*",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
